@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNet.Identity
+
+
+@*<ul class="navbarList nav navbar-nav navbar-right" id="navButton">*@
+@if (Request.IsAuthenticated)
+{
+    <!-- Greeting -->
+    <li>
+        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+
+    <!-- Create a Household -->
+    <li>
+        @Html.ActionLink("Create Household", "Create", "Households")
+    </li>
+
+    <!-- Join a Household -->
+    <li>
+        @Html.ActionLink("Join Household", "Join", "Households")
+    </li>
+
+    <!-- Lock your account -->
+    <li>
+        <a href="@Url.Action("Lock", "Account")">
+            <i class="material-icons">lock_open</i>
+            Lock
+        </a>
+    </li>
+
+    <!-- Log Off -->
+    <li>
+       @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="logoffBtn">Log off</a>
+        }
+    </li>
+
+}
+else
+{
+    <li id="register">
+        <a href="@Url.Action("Register", "Account")">
+            <i class="material-icons">person_add</i>
+            Register
+        </a>
+    </li>
+    <li id="login">
+        <a href="@Url.Action("Login", "Account")">
+            <i class="material-icons">fingerprint</i>
+            Login
+        </a>
+    </li>
+}
+@*</ul>*@
+

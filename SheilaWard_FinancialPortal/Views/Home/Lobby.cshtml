@@ -1,0 +1,245 @@
+﻿@using SheilaWard_FinancialPortal.ViewModels
+@using SheilaWard_FinancialPortal.Models
+@model UserProfileViewModel
+@{
+    Layout = "~/Views/Shared/_RegisterLogin.cshtml";
+    ViewBag.Title = "Lobby";
+}
+
+<div class="wrapper wrapper-full-page">
+    <div class="full-page lobby-page" filter-color="black">
+        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="card card-lobby center-block" data-color="purple">
+                        <h2 class="card-title text-center">Welcome to the Lobby!</h2>
+                        <br />
+                        <div class="form-horizontal text-left">
+                            <div class="col-md-12">
+                                <!-- form start -->
+                                <h4>The Lobby is where newly registered users go until they create a new Household or join an existing Household via an invitation.</h4>
+
+                                <div class="text-center text-uppercase">
+                                    <p><strong>Add your Avatar here</strong> and make any changes necessary to your profile below.</p>
+                                    <p>Then create or join a Household by clicking the appropriate link above!</p>
+                                </div>
+                                <hr class="hr-purple" />
+
+                                <div class="col-sm-4 col-sm-offset-1">
+
+                                    @using (Html.BeginForm("EditProfile", "Members", FormMethod.Post, new { enctype = "Multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        @Html.HiddenFor(model => model.Id)
+                                        @Html.HiddenFor(model => model.FirstName)
+                                        @Html.HiddenFor(model => model.LastName)
+                                        @Html.HiddenFor(model => model.Email)
+                                        @Html.HiddenFor(model => model.PhoneNumber)
+
+                                        <div class="picture-container">
+                                            <div class="form-group" id="fgAvatar">
+                                                <div class="picture">
+                                                    @if (Model.AvatarUrl != null)
+                                                    {
+                                                        <img src="@Model.AvatarUrl" class="picture-src" id="wizardPicturePreview" title="" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="/Avatars/default-user-icon-8.jpg" class="picture-src" id="wizardPicturePreview" title="" />
+                                                    }
+                                                    @*<img src="~/Content/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title="" />*@
+                                                    <input type="file" id="wizard-picture" name="Avatar">
+                                                </div>
+                                            </div>
+                                            <h6>Choose Picture</h6>
+                                            <div class="form-group">
+                                                <input type="submit" value="Save" class="iBtn subBtn text-center" />
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group" id="fgFirstName">
+                                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @using (Html.BeginForm("EditProfile", "Members", FormMethod.Post, new { enctype = "Multipart/form-data" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.HiddenFor(model => model.Id)
+                                            @Html.HiddenFor(model => model.Avatar)
+                                            @Html.HiddenFor(model => model.LastName)
+                                            @Html.HiddenFor(model => model.Email)
+                                            @Html.HiddenFor(model => model.PhoneNumber)
+                                            <div class="col-md-8">
+                                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="submit" class="iBtn subBtn">Save</button>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <div class="form-group" id="fgLastName">
+                                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @using (Html.BeginForm("EditProfile", "Members", FormMethod.Post, new { enctype = "Multipart/form-data" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.HiddenFor(model => model.Id)
+                                            @Html.HiddenFor(model => model.Avatar)
+                                            @Html.HiddenFor(model => model.FirstName)
+                                            @Html.HiddenFor(model => model.Email)
+                                            @Html.HiddenFor(model => model.PhoneNumber)
+                                            <div class="col-md-8">
+                                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="submit" class="iBtn subBtn">Save</button>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <div class="form-group" id="fgPhone">
+                                        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @using (Html.BeginForm("EditProfile", "Members", FormMethod.Post, new { enctype = "Multipart/form-data" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.HiddenFor(model => model.Id)
+                                            @Html.HiddenFor(model => model.Avatar)
+                                            @Html.HiddenFor(model => model.FirstName)
+                                            @Html.HiddenFor(model => model.LastName)
+                                            @Html.HiddenFor(model => model.Email)
+                                            <div class="col-md-8">
+                                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="submit" class="iBtn subBtn">Save</button>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <div class="form-group" id="fgEmail">
+                                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @using (Html.BeginForm("EditProfile", "Members", FormMethod.Post, new { enctype = "Multipart/form-data" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.HiddenFor(model => model.Id)
+                                            @Html.HiddenFor(model => model.Avatar)
+                                            @Html.HiddenFor(model => model.FirstName)
+                                            @Html.HiddenFor(model => model.LastName)
+                                            @Html.HiddenFor(model => model.PhoneNumber)
+                                            <div class="col-md-8">
+                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="submit" class="iBtn subBtn">Save</button>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.Label("Password", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-8 sm-margin">
+                                            <a href="@Url.Action("CustomPasswordResetAsync", "Account")" class="underlined">Reset Your Password</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Html.Partial("_Footer");
+    </div>
+</div>
+
+@section scripts
+    {
+    <script type="text/javascript">
+        $("#fgAvatar").click(function () {
+            $(".picture-container input").removeClass("iBtn");
+            $("#fgFirstName button").addClass("iBtn");
+            $("#fgLastName button").addClass("iBtn");
+            $("#fgPhone button").addClass("iBtn");
+            $("#fgEmail button").addClass("iBtn");
+        });
+
+        $("#fgFirstName").click(function () {
+            $(".picture-container input").addClass("iBtn");
+            $("#fgFirstName button").removeClass("iBtn");
+            $("#fgLastName button").addClass("iBtn");
+            $("#fgPhone button").addClass("iBtn");
+            $("#fgEmail button").addClass("iBtn");
+        });
+
+        $("#fgLastName").click(function () {
+            $(".picture-container input").addClass("iBtn");
+            $("#fgFirstName button").addClass("iBtn");
+            $("#fgLastName button").removeClass("iBtn");
+            $("#fgPhone button").addClass("iBtn");
+            $("#fgEmail button").addClass("iBtn");
+        });
+
+        $("#fgPhone").click(function () {
+            $(".picture-container input").addClass("iBtn");
+            $("#fgFirstName button").addClass("iBtn");
+            $("#fgLastName button").addClass("iBtn");
+            $("#fgPhone button").removeClass("iBtn");
+            $("#fgEmail button").addClass("iBtn");
+        });
+
+        $("#fgEmail").click(function () {
+            $(".picture-container input").addClass("iBtn");
+            $("#fgFirstName button").addClass("iBtn");
+            $("#fgLastName button").addClass("iBtn");
+            $("#fgPhone button").addClass("iBtn");
+            $("#fgEmail button").removeClass("iBtn");
+        });
+
+
+    </script>
+
+    <script>
+        var msg = '@TempData["Message"]';
+        if (msg != "")
+        {
+            Swal.fire({
+                type: 'success',
+                title: 'PASSWORD SUCCESSFULLY CHANGED!',
+                text: msg
+            })
+        }
+    </script>
+
+}
+
+@*$("aside.main-sidebar > section > ul > li > a").each(function () {
+        var var1 = $(this).attr("href");
+        var var2 = window.location.pathname + window.location.search;
+        if (var1 == var2) {
+            $(this).closest("li").addClass("current");
+        }
+        else {
+            $(this).closest("li").removeClass("current");
+        }
+
+    });*@
+
+
+
+
+
+
+
+
+

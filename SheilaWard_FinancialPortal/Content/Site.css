@@ -1,0 +1,608 @@
+﻿/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+/*.dl-horizontal dt {
+    white-space: normal;
+}*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+.login-page .card-login {
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 6px;
+    margin-bottom: 180px;
+}
+
+.login-page footer {
+    padding: 4px 0;
+}
+
+.register-page .container {
+    position: relative;
+    z-index: 3;
+    padding-top: 13vh;
+}
+
+
+.register-page .card-signup {
+    border-radius: 6px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 72px;
+    padding: 40px 0px;
+}
+
+.register-page .register-group {
+    margin-bottom: 20px;
+    line-height: 1.0em;
+}
+
+.register-page .card-signup .form-group {
+    margin: 0 0 0 7px;
+    padding-bottom: 0;
+}
+
+.hr-rose {
+    border-color: #e91e63;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.hr-purple {
+    border-color: #9c27b0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.lobby-page {
+    background-image: url('/Content/img/register.jpeg');
+}
+
+.pw-reset-page {
+    background-image: url('/Content/img/register.jpeg');
+}
+
+.lobby-page .card-lobby {
+    border-radius: 6px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 4px;
+    padding: 40px 0px; 
+    width: 1040px;
+}
+
+.pw-reset-page .card-pw-reset {
+    border-radius: 6px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    padding: 40px 0px;
+    width: 1040px;
+}
+
+.lobby-page .container {
+    position: relative;
+    z-index: 3;
+    padding-top: 18vh;
+}
+
+.pw-reset-page .container {
+    position: relative;
+    z-index: 3;
+    padding-top: 18vh;
+}
+
+
+.user-image {
+    /*margin-top: 4px;*/
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.logoffBtn {
+    color: #FFFFFF;
+    border: none;
+    border-radius: 3px;
+    position: relative;
+    margin: 0 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 20px;
+    text-decoration: none;
+    background-color: transparent;
+    display: block;
+    padding: 14px 30px;
+    will-change: box-shadow, transform;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.logoffBtn:hover {
+    color: #FFFFFF;
+    background-color: rgba(255,255,255,0.12);
+}
+
+.iBtn {
+    visibility: hidden;
+    transition: background 0s ease-out;
+}
+
+.subBtn {
+    margin-top: 8px;
+    background-color: rgb(156,40,177);
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+.btn-purple {
+    background-color: rgb(156,40,177);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 12px 20px;
+}
+
+.logoutLink {
+    color: #050505;
+    background-color: transparent;
+    text-decoration: none;
+
+    margin-left: 5px;
+    padding-right: 89px;
+}
+
+    .logoutLink:hover {
+        width: 100px;
+        margin-left: 5px;
+        padding-right: 89px;
+    }
+
+.sm-margin {
+    margin-top: 8px;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.underlined:hover {
+    text-decoration: underline;
+    font-weight:600;
+}
+
+.needsMargin {
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+.hr-gradient {
+    background-image: linear-gradient(to left, purple, pink);
+    height:2px;
+    border: 1px solid pink;
+}
+
+.card-lobby .picture-container {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+
+.card-lobby .wizard-navigation {
+    position: relative;
+}
+
+.card-lobby .picture {
+    width: 106px;
+    height: 106px;
+    background-color: #999999;
+    border: 4px solid #CCCCCC;
+    color: #FFFFFF;
+    border-radius: 50%;
+    margin: 5px auto;
+    overflow: hidden;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+}
+
+.card-lobby .picture:hover {
+    border-color: #2ca8ff;
+}
+
+.card-lobby .moving-tab {
+    position: absolute;
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    -webkit-font-smoothing: subpixel-antialiased;
+    top: -4px;
+    left: 0px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.card-lobby[data-color="purple"] .moving-tab {
+    background-color: #9c27b0;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+}
+
+.card-lobby[data-color="purple"] .picture:hover {
+    border-color: #9c27b0;
+}
+
+.card-lobby[data-color="purple"] .choice:hover .icon, .card-lobby[data-color="purple"] .choice.active .icon {
+    border-color: #9c27b0;
+    color: #9c27b0;
+}
+
+.card-lobby[data-color="purple"] .form-group .form-control {
+    background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+}
+
+.card-lobby[data-color="purple"] .checkbox input[type=checkbox]:checked + .checkbox-material .check {
+    background-color: #9c27b0;
+}
+
+.card-lobby[data-color="purple"] .dropdown-menu li a:hover, .card-lobby[data-color="purple"] .dropdown-menu li a:focus, .card-lobby[data-color="purple"] .dropdown-menu li a:active {
+    background-color: #9c27b0;
+}
+
+.card-lobby[data-color="purple"] .bootstrap-select.btn-group .dropdown-menu li a:focus, .card-lobby[data-color="purple"] .bootstrap-select.btn-group .dropdown-menu li a:hover {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+}
+
+.card-lobby[data-color="purple"] .radio input[type=radio]:checked ~ .check {
+    background-color: #9c27b0;
+}
+
+.card-lobby[data-color="purple"] .radio input[type=radio]:checked ~ .circle {
+    border-color: #9c27b0;
+}
+
+.card-lobby[data-color="green"] .moving-tab {
+    background-color: #4caf50;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 80, 0.4);
+}
+
+.card-lobby[data-color="green"] .picture:hover {
+    border-color: #4caf50;
+}
+
+.card-lobby[data-color="green"] .choice:hover .icon, .card-lobby[data-color="green"] .choice.active .icon {
+    border-color: #4caf50;
+    color: #4caf50;
+}
+
+.card-lobby[data-color="green"] .form-group .form-control {
+    background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#D2D2D2, #D2D2D2);
+}
+
+.card-lobby[data-color="green"] .checkbox input[type=checkbox]:checked + .checkbox-material .check {
+    background-color: #4caf50;
+}
+
+.card-lobby[data-color="green"] .dropdown-menu li a:hover, .card-lobby[data-color="green"] .dropdown-menu li a:focus, .card-lobby[data-color="green"] .dropdown-menu li a:active {
+    background-color: #4caf50;
+}
+
+.card-lobby[data-color="green"] .bootstrap-select.btn-group .dropdown-menu li a:focus, .card-lobby[data-color="green"] .bootstrap-select.btn-group .dropdown-menu li a:hover {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 80, 0.4);
+}
+
+.card-lobby[data-color="green"] .radio input[type=radio]:checked ~ .check {
+    background-color: #4caf50;
+}
+
+.card-lobby[data-color="green"] .radio input[type=radio]:checked ~ .circle {
+    border-color: #4caf50;
+}
+
+.card-lobby[data-color="blue"] .moving-tab {
+    background-color: #00bcd4;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
+}
+
+.card-lobby[data-color="blue"] .picture:hover {
+    border-color: #00bcd4;
+}
+
+.card-lobby[data-color="blue"] .choice:hover .icon, .card-lobby[data-color="blue"] .choice.active .icon {
+    border-color: #00bcd4;
+    color: #00bcd4;
+}
+
+.card-lobby[data-color="blue"] .form-group .form-control {
+    background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#D2D2D2, #D2D2D2);
+}
+
+.card-lobby[data-color="blue"] .checkbox input[type=checkbox]:checked + .checkbox-material .check {
+    background-color: #00bcd4;
+}
+
+.card-lobby[data-color="blue"] .dropdown-menu li a:hover, .card-lobby[data-color="blue"] .dropdown-menu li a:focus, .card-lobby[data-color="blue"] .dropdown-menu li a:active {
+    background-color: #00bcd4;
+}
+
+.card-lobby[data-color="blue"] .bootstrap-select.btn-group .dropdown-menu li a:focus, .card-lobby[data-color="blue"] .bootstrap-select.btn-group .dropdown-menu li a:hover {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
+}
+
+.card-lobby[data-color="blue"] .radio input[type=radio]:checked ~ .check {
+    background-color: #00bcd4;
+}
+
+.card-lobby[data-color="blue"] .radio input[type=radio]:checked ~ .circle {
+    border-color: #00bcd4;
+}
+
+.card-lobby[data-color="orange"] .moving-tab {
+    background-color: #ff9800;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+}
+
+.card-lobby[data-color="orange"] .picture:hover {
+    border-color: #ff9800;
+}
+
+.card-lobby[data-color="orange"] .choice:hover .icon, .card-lobby[data-color="orange"] .choice.active .icon {
+    border-color: #ff9800;
+    color: #ff9800;
+}
+
+.card-lobby[data-color="orange"] .form-group .form-control {
+    background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#D2D2D2, #D2D2D2);
+}
+
+.card-lobby[data-color="orange"] .checkbox input[type=checkbox]:checked + .checkbox-material .check {
+    background-color: #ff9800;
+}
+
+.card-lobby[data-color="orange"] .dropdown-menu li a:hover, .card-lobby[data-color="orange"] .dropdown-menu li a:focus, .card-lobby[data-color="orange"] .dropdown-menu li a:active {
+    background-color: #ff9800;
+}
+
+.card-lobby[data-color="orange"] .bootstrap-select.btn-group .dropdown-menu li a:focus, .card-lobby[data-color="orange"] .bootstrap-select.btn-group .dropdown-menu li a:hover {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+}
+
+.card-lobby[data-color="orange"] .radio input[type=radio]:checked ~ .check {
+    background-color: #ff9800;
+}
+
+.card-lobby[data-color="orange"] .radio input[type=radio]:checked ~ .circle {
+    border-color: #ff9800;
+}
+
+.card-lobby[data-color="red"] .moving-tab {
+    background-color: #f44336;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
+}
+
+.card-lobby[data-color="red"] .picture:hover {
+    border-color: #f44336;
+}
+
+.card-lobby[data-color="red"] .choice:hover .icon, .card-lobby[data-color="red"] .choice.active .icon {
+    border-color: #f44336;
+    color: #f44336;
+}
+
+.card-lobby[data-color="red"] .form-group .form-control {
+    background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
+}
+
+.card-lobby[data-color="red"] .checkbox input[type=checkbox]:checked + .checkbox-material .check {
+    background-color: #f44336;
+}
+
+.card-lobby[data-color="red"] .dropdown-menu li a:hover, .card-lobby[data-color="red"] .dropdown-menu li a:focus, .card-lobby[data-color="red"] .dropdown-menu li a:active {
+    background-color: #f44336;
+}
+
+.card-lobby[data-color="red"] .bootstrap-select.btn-group .dropdown-menu li a:focus, .card-lobby[data-color="red"] .bootstrap-select.btn-group .dropdown-menu li a:hover {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
+}
+
+.card-lobby[data-color="red"] .radio input[type=radio]:checked ~ .check {
+    background-color: #f44336;
+}
+
+.card-lobby[data-color="red"] .radio input[type=radio]:checked ~ .circle {
+    border-color: #f44336;
+}
+
+.card-lobby[data-color="rose"] .moving-tab {
+    background-color: #e91e63;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+}
+
+.card-lobby[data-color="rose"] .picture:hover {
+    border-color: #e91e63;
+}
+
+.card-lobby[data-color="rose"] .choice:hover .icon, .card-lobby[data-color="rose"] .choice.active .icon {
+    border-color: #e91e63;
+    color: #e91e63;
+}
+
+.card-lobby[data-color="rose"] .form-group .form-control {
+    background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#D2D2D2, #D2D2D2);
+}
+
+.card-lobby[data-color="rose"] .checkbox input[type=checkbox]:checked + .checkbox-material .check {
+    background-color: #e91e63;
+}
+
+.card-lobby[data-color="rose"] .dropdown-menu li a:hover, .card-lobby[data-color="rose"] .dropdown-menu li a:focus, .card-lobby[data-color="rose"] .dropdown-menu li a:active {
+    background-color: #e91e63;
+}
+
+.card-lobby[data-color="rose"] .bootstrap-select.btn-group .dropdown-menu li a:focus, .card-lobby[data-color="rose"] .bootstrap-select.btn-group .dropdown-menu li a:hover {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+}
+
+.card-lobby[data-color="rose"] .radio input[type=radio]:checked ~ .check {
+    background-color: #e91e63;
+}
+
+.card-lobby[data-color="rose"] .radio input[type=radio]:checked ~ .circle {
+    border-color: #e91e63;
+}
+
+.card-lobby .picture input[type="file"] {
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0 !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.card-lobby .picture-src {
+    width: 100%;
+}
+
+.card-lobby .tab-content {
+    min-height: 340px;
+    padding: 20px 15px;
+}
+
+.card-lobby .wizard-footer {
+    padding: 0 15px;
+}
+
+    .card-lobby .wizard-footer .checkbox {
+        margin-top: 16px;
+    }
+
+.card-lobby .disabled {
+    display: none;
+}
+
+.card-lobby .wizard-header {
+    text-align: center;
+    padding: 25px 0 35px;
+}
+
+    .card-lobby .wizard-header h5 {
+        margin: 5px 0 0;
+    }
+
+.card-lobby .nav-pills > li {
+    text-align: center;
+}
+
+.card-lobby .btn {
+    text-transform: uppercase;
+}
+
+.card-lobby .info-text {
+    text-align: center;
+    font-weight: 300;
+    margin: 10px 0 30px;
+}
+
+.card-lobby .choice {
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+    .card-lobby .choice[disabled] {
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: .26;
+    }
+
+    .card-lobby .choice .icon {
+        text-align: center;
+        vertical-align: middle;
+        height: 116px;
+        width: 116px;
+        border-radius: 50%;
+        color: #999999;
+        margin: 0 auto 20px;
+        border: 4px solid #CCCCCC;
+        transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+    }
+
+    .card-lobby .choice i {
+        font-size: 40px;
+        line-height: 111px;
+    }
+
+    .card-lobby .choice:hover .icon, .card-lobby .choice.active .icon {
+        border-color: #2ca8ff;
+    }
+
+    .card-lobby .choice input[type="radio"], .card-lobby .choice input[type="checkbox"] {
+        position: absolute;
+        left: -10000px;
+        z-index: -1;
+    }
+
+.card-lobby .btn-finish {
+    display: none;
+}
+
+.card-lobby .description {
+    color: #999999;
+    font-size: 14px;
+}
+
+.card-lobby .wizard-title {
+    margin: 0;
+}
+
+.card-lobby .nav-pills {
+    background-color: rgba(200, 200, 200, 0.2);
+}
+
+    .card-lobby .nav-pills > li + li {
+        margin-left: 0;
+    }
+
+    .card-lobby .nav-pills > li > a {
+        border: 0 !important;
+        border-radius: 0;
+        line-height: 18px;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 500;
+        min-width: 100px;
+        text-align: center;
+        color: #555555 !important;
+    }
+
+        .card-lobby .nav-pills > li.active > a, .card-lobby .nav-pills > li.active > a:hover, .card-lobby .nav-pills > li.active > a:focus, .card-lobby .nav-pills > li > a:hover, .card-lobby .nav-pills > li > a:focus {
+            background-color: inherit;
+            box-shadow: none;
+        }
+
+    .card-lobby .nav-pills > li i {
+        display: block;
+        font-size: 30px;
+        padding: 15px 0;
+    }

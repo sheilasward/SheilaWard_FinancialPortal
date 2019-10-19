@@ -1,0 +1,232 @@
+﻿@using SheilaWard_FinancialPortal.ViewModels
+@model ConfigureViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Wizard";
+}
+
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="col-sm-8 col-sm-offset-2">
+            <!--      Wizard container        -->
+            <div class="wizard-container">
+                <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                <div class="card wizard-card" data-color="rose" id="wizardProfile">
+                    <div class="wizard-header">
+                        <h3 class="wizard-title">
+                            Configure Your House
+                        </h3>
+                        <h5>This information will allow you to set up a Bank Account, a Budget, and a Budget Item.</h5>
+                    </div>
+                    <div class="wizard-navigation">
+                        <ul>
+                            <li><a href="#bankAccount" data-toggle="tab">Bank Account</a></li>
+                            <li><a href="#budget" data-toggle="tab">Budget</a></li>
+                            <li><a href="#budgetItem" data-toggle="tab">Budget Item</a></li>
+                        </ul>
+                    </div>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.BankAccount.HouseholdId)
+                        @Html.HiddenFor(model => model.Budget.HouseholdId)
+                        <div class="tab-content">
+                            <div class="tab-pane" id="bankAccount">
+                                <div class="row">
+                                    <h4 class="info-text"> Let's start with your main Bank Account</h4>
+                                    <div class="col-sm-6">
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">account_balance</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Bank Name <small>(required)</small></label>
+                                                @Html.TextBoxFor(model => model.BankAccount.Name, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">attach_money</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Starting Balance <small>(required)</small></label>
+                                                @Html.TextBoxFor(model => model.BankAccount.StartingBalance, new { @class = "form-control no-zero" })
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">list</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Type of Account <small>(required)</small></label>
+                                                @Html.DropDownList("AccountTypeId", null, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="budget">
+                                <h4 class="info-text"> Now set up a main Budget Categories (e.g. "Utilities") </h4>
+                                <div class="row">
+                                    <div class="col-sm-6">
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <img src="~/Content/img/budget.png" style="width:20px; height:20px;" />
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Budget Category Name <small>(required)</small></label>
+                                                @Html.TextBoxFor(model => model.Budget.Name, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">description</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Budget Category Description </label>
+                                                @Html.TextBoxFor(model => model.Budget.Description, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">attach_money</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Budget Category Target Amount <small>(required)</small></label>
+                                                @Html.TextBoxFor(model => model.Budget.Target, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="budgetItem">
+                                <h4 class="info-text"> Now set up a Budget Item under the Category you just entered. </h4>
+                                <div class="row">
+                                    <div class="col-sm-6">
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">event</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Budget Item Name (e.g. "Electric Bill") <small>(required)</small></label>
+                                                @Html.TextBoxFor(model => model.BudgetItem.Name, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">all_out</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Budget Item Description </label>
+                                                @Html.TextBoxFor(model => model.BudgetItem.Description, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">attach_money</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Budget Item Target Amount<small>(required)</small></label>
+                                                @Html.TextBoxFor(model => model.BudgetItem.Target, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wizard-footer">
+                            <div class="pull-right">
+                                <input type='button' class='btn btn-next btn-fill btn-rose btn-wd' name='next' value='Next' />
+                                <input type='submit' class='btn btn-finish btn-fill btn-rose btn-wd' name='finish' value='Finish' />
+                            </div>
+
+                            <div class="pull-left">
+                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    }
+                </div>
+            </div> <!-- wizard container -->
+        </div>
+    </div>
+</div>
+
+@*<h2>Wizard</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Household</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Greeting, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Greeting, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Greeting, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Created, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Created, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Created, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+*@
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            demo.initMaterialWizard();
+            setTimeout(function () {
+                $('.card.wizard-card').addClass('active');
+            }, 600);
+        });
+    </script>
+
+    <script>
+        $(".no-zero").val("")
+    </script>
+    
+}
